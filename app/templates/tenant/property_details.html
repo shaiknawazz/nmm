@@ -1,0 +1,30 @@
+{% extends "base_landlord.html" %}
+{% block content %}
+   <section class="probootstrap-section-half d-md-flex" id="section-about">
+      <div class="probootstrap-text" id="property-container">
+        <div class="probootstrap-inner probootstrap-animate" data-animate-effect="fadeInRight">
+          <h2 class="heading mb-4">{{ property.property_name }}</h2>
+          <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p>Address : {{ property.address }}</p>
+              </div>
+              <div class="col-md-6">
+                <p>Rent : {{ property.rent }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>ID : {{ property.property_id }}</p>
+              </div>
+              <div class="col-md-6">
+                <p>Landlord ID : {{ property.landlord }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

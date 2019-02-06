@@ -1,0 +1,76 @@
+{% extends "base_landlord.html" %}
+{% block content %}
+  <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('{{ url_for('static', filename='images/bg_1.jpg') }}');" data-stellar-background-ratio="0.5" id="section-home">
+      <div class="overlay"></div>
+      <div class="container container-table" style="margin-top: -130px; margin-bottom: 0px;">
+          <div class="row vertical-center-row">
+            <div align="center">
+          <div class="col-md-8 probootstrap-animate">
+<form id="msform" action="" method="POST">
+  {{ form.csrf_token }}
+  <h3 style="color: white";>Enter Your Property Details.</h3><br><br>
+  <!-- progressbar -->
+  <ul id="progressbar">
+       <li class="active">Name</li>
+       <li>Lease Type</li>
+       <li>Furnished</li>
+       <li>Address</li>
+       <li>Rooms</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">PATIENT AGE</h2>
+    <h3 class="fs-subtitle">First Step</h3>
+    {{form.name.label}} {{ form.name }}
+<input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">PATIENT AGE</h2>
+    <h3 class="fs-subtitle">First Step</h3>
+    {{form.lease_type.label}} {{ form.lease_type }}
+<input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">PATIENT AGE</h2>
+    <h3 class="fs-subtitle">First Step</h3>
+    {{form.furnished.label}} {{ form.furnished }}
+<input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Diabetes type</h2>
+    <h3 class="fs-subtitle">Second Step</h3>
+    {{form.address.label}} {{ form.address }}
+  <br>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+<fieldset>
+    <h2 class="fs-title">Treament Type</h2>
+    <h3 class="fs-subtitle">Third Step</h3>
+    {{form.rooms.label}} {{ form.rooms }}
+  <br>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    {{form.submit(class='submit action-button')}}
+  </fieldset>
+</form></div>
+          </div>
+        </div> 
+        </div>    
+    </section>
+    <!-- END section -->
+    <section class="probootstrap_section" id="section-feature-testimonial">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-12 text-center mb-5 probootstrap-animate">
+            <h2 class="display-4 border-bottom probootstrap-section-heading">Why we Love NoBroker</h2>
+            <blockquote class="">
+              <p class="lead mb-4"><em>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</em></p>
+            </blockquote>
+
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+{% endblock %}

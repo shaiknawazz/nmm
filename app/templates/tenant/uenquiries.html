@@ -1,0 +1,37 @@
+{% extends "base_tenant.html" %}
+{% block content %}    
+    <section class="probootstrap_section" id="section-city-guides">
+      <div class="container">
+        <div class="row mb-3">
+          {% block user_enquiries %}
+          {% for enquiry in enquiries %}
+          <div class="col-md-12">
+            <div class="media probootstrap-media d-flex align-items-stretch mb-4 probootstrap-animate">
+              <div class="media-body">
+                <h5 class="mb-3">{{enquiry.enquiry_id}}</h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    {{enquiry.property_id}}
+                  </div>
+                  <div class="col-md-6">
+                    {{enquiry.enquirer_id}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endblock %}
+          <div class="col-md-12">
+            <div class="media probootstrap-media d-flex align-items-stretch mb-4 probootstrap-animate">
+              <div class="media-body">
+                <h5 class="mb-3">02. Service Title Here</h5>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
