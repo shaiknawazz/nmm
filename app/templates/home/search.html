@@ -29,7 +29,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar scrolled awake" id="probootstrap-navbar" style="position: inherit;">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('home.index') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> NOBroker</a>
+        <a class="navbar-brand" href="{{ url_for('home.index') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> no more landlord</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
           <span><i class="ion-navicon"></i></span>
         </button>
@@ -72,13 +72,21 @@
         {% endif %}
       </div>
     </nav>
-    <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('{{ url_for('static', filename='images/bg_25.jpg') }}');" data-stellar-background-ratio="0.5" id="section-home">
+    <section class="probootstrap-cover overflow-hidden relative"  style="background-image: url('{{ url_for('static', filename='images/bg_main2.jpg') }}');" data-stellar-background-ratio="0.5" id="section-home">
       <div class="overlay"></div>
       <div class="container container-table" style="margin-top: -40px;">
           <div class="row vertical-center-row">
           <div align="center">
-          <div id="form-col" class="col-md-10 probootstrap-animate" style="width: 50%;">
-            <form action="/results" method="POST" class="probootstrap-form probootstrap-form-box mb60">
+          <div id="form-col" class="col-md-10 probootstrap-animate" style="width: 80%;">
+            <div class="col-md-12 text-center mb-5 probootstrap-animate">
+              <h2 class="display-4 border-bottom probootstrap-section-heading">Why we Love NNM</h2>
+              <blockquote class="">
+                <p class="lead mb-4"><em>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</em></p>
+              </blockquote>
+              <button class="btn btn-primary">get started</button>
+
+            </div>
+            <!---<form action="/results" method="POST" class="probootstrap-form probootstrap-form-box mb60">
               {{ form.csrf_token }}
               <div class="form-group">
                 {{ form.lease_type(class='js-example-basic-single js-states form-control')}}
@@ -100,7 +108,7 @@
                 {% endfor %}
               </div>
                 {{form.submit(class='btn btn-primary')}}
-            </form>
+            </form>-->
           </div>
         </div>
       </div>

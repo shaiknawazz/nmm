@@ -2,112 +2,203 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <title>NoBroker Rent Portal</title>
-    <meta name="description" content="Free Bootstrap 4 Theme by uicookies.com">
-    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+    <meta
+      name="description"
+      content="Free Bootstrap 4 Theme by uicookies.com"
+    />
+    <meta
+      name="keywords"
+      content="free website templates, free bootstrap themes, free template, free bootstrap, free website template"
+    />
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/flaticon/font/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/fontawesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/select2.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/helpers.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700"
+      rel="stylesheet"
+    />
 
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap/bootstrap.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/animate.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='fonts/ionicons/css/ionicons.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='fonts/flaticon/font/flaticon.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='fonts/fontawesome/css/font-awesome.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/select2.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/helpers.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
   </head>
   <body>
-    
     <section class="probootstrap_section">
       <div class="row">
-      <div class="container">
-        <div class="row text-center mb-5 probootstrap-animate">
-          <div class="col-md-12">
-            <h3 class="display-6 probootstrap-section-heading"><a href="{{ url_for('home.index') }}">NOBroker</a></h3>
-            <br>
-            <h4 class="display-5 border-bottom probootstrap-section-heading">Register</h4>
+        <div class="container">
+          <div class="row text-center mb-5 probootstrap-animate">
+            <div class="col-md-12">
+              <h3 class="display-6 probootstrap-section-heading">
+                <a href="{{ url_for('home.index') }}">No More Landlord</a>
+              </h3>
+              <br />
+              <h4 class="display-5 border-bottom probootstrap-section-heading">
+                Register
+              </h4>
+            </div>
           </div>
         </div>
-      </div>
 
-    <div class="container container-table">
-        <div class="row vertical-center-row">
-          <div align="center">
-          <div id="form-col" class="col-md-6 probootstrap-animate">
-            <p>{{ utils.flashed_messages() }}</p>
-            <form action="" method="POST" class="probootstrap-form probootstrap-form-box mb60">
-              {{ form.csrf_token }}
-              <div class="form-group">
-                {{ form.name(class='form-control',placeholder='Name')}}
-                {% for error in form.name.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
+        <div class="container container-table">
+          <div class="row vertical-center-row">
+            <div align="center">
+              <div id="form-col" class="col-md-6 probootstrap-animate">
+                <p>{{ utils.flashed_messages() }}</p>
+                <form
+                  action=""
+                  method="POST"
+                  class="probootstrap-form probootstrap-form-box mb60"
+                >
+                  {{ form.csrf_token }}
+                  <div class="form-group">
+                    {{ form.name(class='form-control',placeholder='Name')}}
+                    {% for error in form.name.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="form-group">
+                    {{ form.email(class='form-control',placeholder='Email')}}
+                    {% for error in form.email.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="form-group">
+                    {{ form.mobile_no(class='form-control',placeholder='Mobile No.')}}
+                    {% for error in form.mobile_no.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="form-group">
+                    {{ form.user_type.label }}
+                    {{ form.user_type }}
+                    {% for error in form.user_type.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="form-group">
+                    {{form.password(class='form-control', placeholder='Password')}}
+                    {% for error in form.password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <div class="form-group">
+                    {{form.confirm_password(class='form-control', placeholder='Confirm Password')}}
+                    {% for error in form.confirm_password.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div>
+                  <center>
+                    <div class="form-group">
+                      <a href="{{ url_for('auth.login') }}"
+                        >Already Registered ?</a
+                      ><br />
+                      {{form.submit(class='btn btn-primary')}}
+                    </div>
+                  </center>
+                </form>
               </div>
-              <div class="form-group">
-                {{ form.email(class='form-control',placeholder='Email')}}
-                {% for error in form.email.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-              </div>
-              <div class="form-group">
-                {{ form.mobile_no(class='form-control',placeholder='Mobile No.')}}
-                {% for error in form.mobile_no.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-              </div>
-              <div class="form-group">
-                {{ form.user_type.label }}
-                {{ form.user_type}}
-                {% for error in form.user_type.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-              </div>
-              <div class="form-group">
-                {{form.password(class='form-control', placeholder='Password')}}
-                {% for error in form.password.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-              </div>
-              <div class="form-group">
-                {{form.confirm_password(class='form-control', placeholder='Confirm Password')}}
-                {% for error in form.confirm_password.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-              </div>
-              <center><div class="form-group">
-                <a href="{{ url_for('auth.login') }}">Already Registered ?</a><br>
-                {{form.submit(class='btn btn-primary')}}
-              </div></center>
-            </form>
+            </div>
           </div>
         </div>
-        </div>
       </div>
-    </div>
     </section>
-    
+
     <!-- END section -->
-<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
-<!-- jQuery easing plugin -->
-<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-    
-    <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script
+      src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- jQuery easing plugin -->
+    <script
+      src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/popper.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/bootstrap-datepicker.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/select2.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/index.js') }}"
+    ></script>
   </body>
 </html>
