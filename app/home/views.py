@@ -64,3 +64,9 @@ def about():
 @home.route('/contact', methods=['GET', 'POST'])
 def contact():
     return render_template('home/contact.html')
+
+
+@home.route('/dashboard', methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    return render_template('home/dashboard.html')

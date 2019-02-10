@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>NoBroker Rent Portal</title>
+    <title>Complete Profile</title>
     <meta
       name="description"
       content="Free Bootstrap 4 Theme by uicookies.com"
@@ -58,88 +58,144 @@
     />
   </head>
   <body>
-    <section class="probootstrap_section">
+    <nav class="navbar navbar-expand-lg navbar-dark probootstrap_navbar scrolled awake" id="probootstrap-navbar" style="position: inherit;">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home.index') }}"><img src="{{ url_for('static', filename='images/favicon.png') }}" href=""></img> no more landlord</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-menu" aria-controls="probootstrap-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span><i class="ion-navicon"></i></span>
+        </button>
+        {% if current_user %}
+        <div class="collapse navbar-collapse" id="probootstrap-menu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
+          </ul>
+        </div>
+        {% endif %}
+    </nav>
+      
+    <section class="probootstrap_section" style="padding-top:40px;"> 
       <div class="row">
         <div class="container">
           <div class="row text-center mb-5 probootstrap-animate">
             <div class="col-md-12">
-              <h3 class="display-6 probootstrap-section-heading">
-                <a href="{{ url_for('home.index') }}">No More Landlord</a>
-              </h3>
               <br />
-              <h4 class="display-5 border-bottom probootstrap-section-heading">
-                Register
+              <h4 class="">
+                Complete your Profile
               </h4>
+							or<br>
+							<a href="{{ url_for('home.index') }}">Skip for now</a>
             </div>
           </div>
         </div>
 
         <div class="container container-table">
-          <div class="row vertical-center-row">
+          <div class="row vertical-center-row" style="padding-top:0!important;">
             <div align="center">
               <div id="form-col" class="col-md-6 probootstrap-animate">
                 <p>{{ utils.flashed_messages() }}</p>
-                <div class="signin-options">
-                  <div class="signin-options-header">EASILY USING:</div>
-                  <button class="btn btn-default">
-                    <i class="fa fa-facebook-square"></i> Facebook
-                  </button>
-                  <button class="btn btn-default">
-                    <i class="fa fa-google-plus-square"></i>Google
-                  </button>
-                </div>
                 <br />
-
+								{{current_user.user_type}}
                 <form
                   action=""
                   method="POST"
                   class="probootstrap-form probootstrap-form-box mb60"
                 >
                   {{ form.csrf_token }}
-                  <div class="form-header">OR USE EMAIL</div>
+                  <div class="border-bottom">PERSONAL DETAILS</div>
                   <br />
                   <div class="form-group">
-                    {{ form.name(class='form-control',placeholder='Name')}}
+                    {{ form.name(class='form-control',placeholder='Name', value=current_user.name )}}
                     {% for error in form.name.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                   </div>
-                  <div class="form-group">
-                    {{ form.email(class='form-control',placeholder='Email')}}
-                    {% for error in form.email.errors %}
+                  <!-- <div class="form-group">
+                    {{ form.aadhar(class='form-control',placeholder='Aadhar Number')}}
+                    {% for error in form.aadhar.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                   </div>
                   <div class="form-group">
-                    {{ form.mobile_no(class='form-control',placeholder='Mobile No.')}}
-                    {% for error in form.mobile_no.errors %}
+                    {{ form.clear_survey(class='form-control',placeholder='Clear Survey No.')}}
+                    {% for error in form.clear_survey.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                   </div>
                   <div class="form-group">
-                    {{ form.user_type.label }}
-                    {{ form.user_type }}
-                    {% for error in form.user_type.errors %}
+                    {{form.mobile(class='form-control', placeholder='Mobile No.', value=current_user.mobile_no)}}
+                    {% for error in form.mobile.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                  </div> -->
+                  <div class="form-group state-select">
+                    {{ form.state(class='js-example-basic-single js-states form-control')}}
+                    {% for error in form.state.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                    </div>
+                  <div class="form-group state-select">
+                    {{ form.district(class='js-example-basic-single js-states form-control')}}
+                    {% for error in form.district.errors %}
                     <span style="color: red;">[{{ error }}]</span>
                     {% endfor %}
                   </div>
-                  <div class="form-group">
-                    {{form.password(class='form-control', placeholder='Password')}}
-                    {% for error in form.password.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-                  <div class="form-group">
-                    {{form.confirm_password(class='form-control', placeholder='Confirm Password')}}
-                    {% for error in form.confirm_password.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
+									<!-- <div class="form-group">
+										{{form.village(class='form-control', placeholder='Village')}}
+										{% for error in form.village.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.mandal(class='form-control', placeholder='Mandal')}}
+										{% for error in form.mandal.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.zip_code(class='form-control', placeholder='Zip Code')}}
+										{% for error in form.zip_code.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.land_address(class='form-control', placeholder='Land Address')}}
+										{% for error in form.land_address.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.residence_address(class='form-control', placeholder='Residence Address')}}
+										{% for error in form.residence_address.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.pan(class='form-control', placeholder='PAN')}}
+										{% for error in form.pan.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.crop(class='form-control', placeholder='Last Crop Details')}}
+										{% for error in form.pan.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{ form.water.label }}
+										{{ form.water }}
+										{% for error in form.water.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div>
+									<div class="form-group">
+										{{form.bank(class='form-control', placeholder='Bank Details')}}
+										{% for error in form.pan.errors %}
+										<span style="color: red;">[{{ error }}]</span>
+										{% endfor %}
+									</div> -->
                   <center>
                     <div class="form-group">
-                      <a href="{{ url_for('auth.login') }}"
-                        >Already Registered ?</a
-                      ><br />
                       {{form.submit(class='btn btn-primary')}}
                     </div>
                   </center>

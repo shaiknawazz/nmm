@@ -27,6 +27,48 @@
   font-style: normal;
 }
 
+/*Extra Styles*/
+.signin-options .btn {
+  border: 1px solid #e0e0e0 !important;
+}
+.signin-options .signin-options-header {
+  padding: 10px 0;
+}
+.signin-options .fa-facebook-square {
+  color: #3b5998;
+}
+.signin-options .fa-google-plus-square {
+  color: #db4a39;
+  padding-right: 10px !important;
+}
+.form-header {
+  position: relative;
+}
+.form-header:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #e0e0e0;
+  top: 50%;
+  left: 28%;
+}
+
+.form-header:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #e0e0e0;
+  top: 50%;
+  right: 28%;
+}
+
+.state-select .select2-container--default {
+  width: 100% !important;
+}
+/*Extra styles end*/
+
 html {
   overflow-x: hidden;
   font-size: 1em;
@@ -78,6 +120,10 @@ a {
   background-size: cover;
   padding: 7em 0;
   min-height: 580px;
+}
+
+#section-home {
+  background-image: url("../images/bg_main.jpg");
   background-attachment: fixed;
 }
 .probootstrap-cover .overlay {
