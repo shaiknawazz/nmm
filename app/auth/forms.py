@@ -41,24 +41,24 @@ class RegistrationForm(FlaskForm):
 
 class CompleteProfileForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    # aadhar = StringField('Aadhar', validators=[DataRequired()])
-    # clear_survey = StringField('Survey', validators=[DataRequired()])
-    # mobile = StringField('Mobile No.', validators=[DataRequired()])
-    # land_pass_book = StringField('Land Pass Book', validators=[DataRequired()])
+    aadhar = StringField('Aadhar', validators=[DataRequired()])
+    clear_survey = StringField('Survey', validators=[DataRequired()])
+    mobile = StringField('Mobile No.', validators=[DataRequired()])
+    land_pass_book = StringField('Land Pass Book', validators=[DataRequired()])
     state = SelectField('State', choices=[(
         'ap', 'Andhra Pradesh'), ('wb', 'West Bengal'), ('kr', 'Karnataka')], validators=[DataRequired()])
     district = SelectField('District', choices=[(
         'ap', 'Andhra Pradesh'), ('wb', 'West Bengal'), ('kr', 'Karnataka')], validators=[DataRequired()])
-    # mandal = StringField('mandal', validators=[DataRequired()])
-    # village = StringField('Village.', validators=[DataRequired()])
-    # zip_code = StringField('Zip Code', validators=[DataRequired()])
-    # land_address = StringField('Land Address', validators=[DataRequired()])
-    # residence_address = StringField(
-    #     'Residence Address', validators=[DataRequired()])
-    # pan = StringField('PAN', validators=[DataRequired()])
-    # crop = StringField('Last Crop Details', validators=[DataRequired()])
-    # water = RadioField('Water Availability', choices=[(
-    #     '1', 'Yes'), ('0', 'No')], validators=[DataRequired()])
-    # bank = StringField('bank', validators=[DataRequired()])
+    mandal = StringField('mandal', validators=[DataRequired()])
+    village = StringField('Village.', validators=[DataRequired()])
+    zip_code = StringField('Zip Code', validators=[DataRequired()])
+    land_address = StringField('Land Address', validators=[DataRequired()])
+    residence_address = StringField(
+        'Residence Address', validators=[DataRequired()])
+    pan = StringField('PAN', validators=[DataRequired()])
+    crop = StringField('Last Crop Details', validators=[DataRequired()])
+    water = RadioField('Water Availability', choices=[(
+        '1', 'Yes'), ('0', 'No')], validators=[DataRequired()])
+    bank = StringField('bank', validators=[DataRequired()])
 
     submit = SubmitField('Complete')
