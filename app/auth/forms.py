@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, SubmitField, RadioField, ValidationError, IntegerField, SelectField
+from wtforms import PasswordField, StringField, SubmitField, RadioField, ValidationError, IntegerField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo
 from ..models import Users
 
@@ -52,13 +52,19 @@ class CompleteProfileForm(FlaskForm):
     mandal = StringField('mandal', validators=[DataRequired()])
     village = StringField('Village.', validators=[DataRequired()])
     zip_code = StringField('Zip Code', validators=[DataRequired()])
-    land_address = StringField('Land Address', validators=[DataRequired()])
-    residence_address = StringField(
+    land_address = TextAreaField('Land Address', validators=[DataRequired()])
+    residence_address = TextAreaField(
         'Residence Address', validators=[DataRequired()])
     pan = StringField('PAN', validators=[DataRequired()])
     crop = StringField('Last Crop Details', validators=[DataRequired()])
     water = RadioField('Water Availability', choices=[(
         '1', 'Yes'), ('0', 'No')], validators=[DataRequired()])
-    bank = StringField('bank', validators=[DataRequired()])
+    account_no = StringField('account_no', validators=[DataRequired()])
+    bank_name = StringField('bank_name', validators=[DataRequired()])
+    ifsc = StringField('ifsc', validators=[DataRequired()])
+    investment_amount = StringField(
+        'investment_amount', validators=[DataRequired()])
+    employment_type = RadioField('Are you a', choices=[(
+        'salaried', 'Salaried Employee'), ('businessman', 'Businessman')], validators=[DataRequired()])
 
     submit = SubmitField('Complete')

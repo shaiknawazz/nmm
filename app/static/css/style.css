@@ -67,6 +67,13 @@
 .state-select .select2-container--default {
   width: 100% !important;
 }
+
+#residential_details,
+#land_details,
+#bank_details,
+#complete {
+  display: none;
+}
 /*Extra styles end*/
 
 html {

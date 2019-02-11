@@ -1,4 +1,4 @@
-from flask import flash, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for, request
 from flask_login import login_required, login_user, logout_user
 
 from .. import db
@@ -24,9 +24,10 @@ def login():
 @login_required
 def completeProfile():
     form = CompleteProfileForm()
-    if form.validate_on_submit():
-        print('here')
+    if request.method == 'POST':
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.here')
         return redirect(url_for('home.dashboard'))
+
     return render_template('auth/completeProfile.html', form=form)
 
 

@@ -94,111 +94,189 @@
               <div id="form-col" class="col-md-6 probootstrap-animate">
                 <p>{{ utils.flashed_messages() }}</p>
                 <br />
-								{{current_user.user_type}}
+                <span>{{ current_user.user_type }}ddd</span>
                 <form
                   action=""
                   method="POST"
                   class="probootstrap-form probootstrap-form-box mb60"
+                  id="complete_profile"
                 >
                   {{ form.csrf_token }}
-                  <div class="border-bottom">PERSONAL DETAILS</div>
-                  <br />
-                  <div class="form-group">
-                    {{ form.name(class='form-control',placeholder='Name', value=current_user.name )}}
-                    {% for error in form.name.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-                  <div class="form-group">
-                    {{ form.aadhar(class='form-control',placeholder='Aadhar Number')}}
-                    {% for error in form.aadhar.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-                  <div class="form-group">
-                    {{ form.clear_survey(class='form-control',placeholder='Clear Survey No.')}}
-                    {% for error in form.clear_survey.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-                  <div class="form-group">
-                    {{form.mobile(class='form-control', placeholder='Mobile No.', value=current_user.mobile_no)}}
-                    {% for error in form.mobile.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-                  <div class="form-group state-select">
-                    {{ form.state(class='js-example-basic-single js-states form-control')}}
-                    {% for error in form.state.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                    </div>
-                  <div class="form-group state-select">
-                    {{ form.district(class='js-example-basic-single js-states form-control')}}
-                    {% for error in form.district.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                  </div>
-									<div class="form-group">
-										{{form.village(class='form-control', placeholder='Village')}}
-										{% for error in form.village.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.mandal(class='form-control', placeholder='Mandal')}}
-										{% for error in form.mandal.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.zip_code(class='form-control', placeholder='Zip Code')}}
-										{% for error in form.zip_code.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.land_address(class='form-control', placeholder='Land Address')}}
-										{% for error in form.land_address.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.residence_address(class='form-control', placeholder='Residence Address')}}
-										{% for error in form.residence_address.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.pan(class='form-control', placeholder='PAN')}}
-										{% for error in form.pan.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.crop(class='form-control', placeholder='Last Crop Details')}}
-										{% for error in form.pan.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{ form.water.label }}
-										{{ form.water }}
-										{% for error in form.water.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-									<div class="form-group">
-										{{form.bank(class='form-control', placeholder='Bank Details')}}
-										{% for error in form.pan.errors %}
-										<span style="color: red;">[{{ error }}]</span>
-										{% endfor %}
-									</div>
-                  <center>
+                  <div id="personal_details">
+                    <div class="border-bottom" >PERSONAL DETAILS</div>
+                    
+                    <br />
                     <div class="form-group">
-                      {{form.submit(class='btn btn-primary')}}
+                      {{ form.name(class='form-control',placeholder='Name', value=current_user.name, id='name' )}}
+                      <span id="error_name" class="error_span" style="color: red;"></span>
+                      {% for error in form.name.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
                     </div>
-                  </center>
+                    <div class="form-group">
+                      {{form.mobile(class='form-control', placeholder='Mobile No.', value=current_user.mobile_no, id='mobile_no')}}
+                      <span id="error_mobile" class="error_span" style="color: red;"></span>
+                      {% for error in form.mobile.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{ form.aadhar(class='form-control',placeholder='Aadhar Number', id='aadhar')}}
+                      <span id="error_aadhar" class="error_span" style="color: red;"></span>
+                      {% for error in form.aadhar.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.pan(class='form-control', placeholder='PAN', id='pan')}}
+                      <span id="error_pan" class="error_span" style="color: red;"></span>
+                      {% for error in form.pan.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{ form.clear_survey(class='form-control',placeholder='Clear Survey No.', id='clear_survey')}}
+                      <span id="error_clear_survey" class="error_span" style="color: red;"></span>
+                      {% for error in form.clear_survey.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    {% if current_user.user_type == 'I' or current_user.user_type == 'T' %}
+                    {% block investor_details %}
+                    <div class="form-group">
+                      {{ form.investment_amount(class='form-control',placeholder='How much would you like to invest?', id='amount')}}
+                      <span id="error_amount" class="error_span" style="color: red;"></span>
+                      {% for error in form.clear_survey.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{ form.employment_type.label }}
+                      {{ form.employment_type (id='employment_type') }}
+                      <span id="error_employment_type" class="error_span" style="color: red;"></span>
+                      {% for error in form.water.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    {%endblock%}
+                    {% endif %}
+                    <button id="next1" class="btn btn-primary">NEXT</button>
+                  </div>
+                  <div id="residential_details">
+                  <div class="border-bottom" >RESIDENTIAL DETAILS</div>
+                    <div class="form-group state-select">
+                      {{ form.state(class='js-example-basic-single js-states form-control')}}
+                      {% for error in form.state.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                      </div>
+                    <div class="form-group state-select">
+                      {{ form.district(class='js-example-basic-single js-states form-control')}}
+                      {% for error in form.district.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.residence_address(class='form-control', placeholder='Full Address', id='residence')}}
+                      <span id="error_residence" class="error_span" style="color: red;"></span>
+                      {% for error in form.residence_address.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.village(class='form-control', placeholder='Village', id='village')}}
+                      <span id="error_village" class="error_span" style="color: red;"></span>
+                      {% for error in form.village.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.mandal(class='form-control', placeholder='Mandal', id='mandal')}}
+                      <span id="error_mandal" class="error_span" style="color: red;"></span>
+                      {% for error in form.mandal.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.zip_code(class='form-control', placeholder='Zip Code', id='zip')}}
+                      <span id="error_zip" class="error_span" style="color: red;"></span>
+                      {% for error in form.zip_code.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    {% if current_user.user_type == 'L' %}
+                    {% block landlord_btn %}
+                    <button id="previous1" class="btn btn-primary">PREVIOUS</button>
+                    <button id="next2" class="btn btn-primary">NEXT</button>
+                    {%endblock%}
+                    {%else%}
+                    {% block investor_btn %}
+                    <button id="previous1" class="btn btn-primary">PREVIOUS</button>
+                    <button id="submit_Investor" class="btn btn-primary">COMPLETE</button>
+                    {%endblock%}
+                    {%endif%}
+                  </div>
+                  
+                  {% if current_user.user_type == 'L' %}
+                  {% block landlord_profile %}
+                  <div id="land_details">
+                    <div class="border-bottom" >LAND DETAILS</div>
+                      <div class="form-group">
+                        {{form.land_address(class='form-control', placeholder='Land Address', id='land_address')}}
+                        <span id="error_land_address" class="error_span" style="color: red;"></span>
+                        {% for error in form.land_address.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                      </div>
+                      <div class="form-group">
+                        {{form.crop(class='form-control', placeholder='Last Crop Details', id='crop')}}
+                        <span id="error_crop" class="error_span" style="color: red;"></span>
+                        {% for error in form.crop.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                      </div>
+                      <div class="form-group">
+                        {{ form.water.label }}
+                        {{ form.water (id='water') }}
+                        <span id="error_water" class="error_span" style="color: red;"></span>              
+                        {% for error in form.water.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                      </div>
+                      <button id="previous2" class="btn btn-primary">PREVIOUS</button>
+                      <button id="next3" class="btn btn-primary">NEXT</button>
+                    </div>
+                  <div id="bank_details">
+                    <div class="border-bottom" id="bank_details">BANK DETAILS</div>
+                    <div class="form-group">
+                      {{form.bank_name(class='form-control', placeholder='Name as in Bank', id='bank_name')}}
+                      <span id="error_bank_name" class="error_span" style="color: red;"></span>
+                      {% for error in form.bank_name.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.account_no(class='form-control', placeholder='Account No.', id='account_no')}}
+                      <span id="error_account_no" class="error_span" style="color: red;"></span>
+                      {% for error in form.account_no.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    <div class="form-group">
+                      {{form.ifsc(class='form-control', placeholder='IFSC Code')}}
+                      <span id="error_ifsc" class="error_span" style="color: red;"></span>
+                      {% for error in form.ifsc.errors %}
+                      <span style="color: red;">[{{ error }}]</span>
+                      {% endfor %}
+                    </div>
+                    
+                    <div class="form-group">
+                      <button id="previous3" class="btn btn-primary">PREVIOUS</button>
+                      <button id="complete_profile_submit" class="btn btn-primary">COMPLETE</button>
+                    </div>
+                  </div>
+                  {%endblock%}
+                  {%endif%}
                 </form>
               </div>
             </div>
@@ -258,5 +336,105 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/index.js') }}"
     ></script>
+    <script>
+      $('#next1').click(function (e) {
+        e.preventDefault();
+        var name = $('#name').val();
+        var mobile = $('#mobile_no').val();
+        var aadhar = $('#aadhar').val();
+        var pan = $('#pan').val();
+        $(".error_span").html('');
+        var clear_survey = $('#clear_survey').val();
+        if(!name){
+          $('#error_name').html('[ Name is required ]');
+        }else if (!mobile) {
+            $('#error_mobile').html('[ Mobile Number is required ]');
+        }else if (!aadhar) {
+          $('#error_aadhar').html('[ Addhar Number is required ]');
+        }else if (!pan) {
+          $('#error_pan').html('[ Pan Number is required ]');
+        }else if (!clear_survey) {
+          $('#error_clear_survey').html('[ Clear Survey Number is required ]');
+        }else{
+          $('#personal_details').fadeOut(300);
+          $('#residential_details').delay(300).fadeIn(300);
+        }
+      });
+      
+      $('#previous1').click(function(e){
+        e.preventDefault();
+        $('#residential_details').fadeOut(300);
+        $('#personal_details').delay(300).fadeIn(300);
+      });
+      
+      $('#next2').click(function(e){
+        e.preventDefault();
+        var mandal = $('#mandal').val();
+        var village = $('#village').val();
+        var zip = $('#zip').val();
+        var residence = $('#residence').val();
+        $(".error_span").html('');
+        var clear_survey = $('#clear_survey').val();
+        if (!residence) {
+          $('#error_residence').html('[ Address is required ]');
+        }else if (!village) {
+          $('#error_village').html('[ Village is required ]');
+        }else if (!mandal) {
+          $('#error_mandal').html('[ Mandal is required ]');
+        }else if (!zip) {
+          $('#error_zip').html('[ Zip code is required ]');
+        }else {
+          $('#residential_details').fadeOut(300);
+          $('#land_details').delay(300).fadeIn(300);
+        }
+      });
+      
+      $('#previous2').click(function (e) {
+        e.preventDefault();
+        $('#land_details').fadeOut(300);
+        $('#residential_details').delay(300).fadeIn(300);
+      });
+      
+      $('#next3').click(function (e) {
+        e.preventDefault();
+        var land_address = $('#land_address').val();
+        var crop = $('#crop').val();
+        var water = $("input[name=water]").prop('checked');
+        $(".error_span").html('');
+        if (!land_address) {
+          $('#error_land_address').html('[ Land Address is required ]');
+        } else if (!crop) {
+          $('#error_crop').html('[ Last crop details is required ]');
+        } else if (!water) {
+          $('#error_water').html('[ Water availability is required ]');
+        }else {
+          $('#land_details').fadeOut(300);
+          $('#bank_details').delay(300).fadeIn(300);
+        }
+      });
+      
+      $('#previous3').click(function (e) {
+        e.preventDefault();
+        $('#bank_details').fadeOut(300);
+        $('#land_details').delay(300).fadeIn(300);
+      });
+      
+      $('#complete_profile_submit').click(function (e) {
+        e.preventDefault();
+        var account_no = $('#account_no').val();
+        var bank_name = $('#bank_name').val();
+        var ifsc = $("#ifsc").val();
+        $(".error_span").html('');
+        if (!bank_name) {
+          $('#error_bank_name').html('[ Name is required ]');
+        } else if (!account_no) {
+          $('#error_account_no').html('[ Account Number is required ]');
+        } else if (!ifsc) {
+          $('#error_ifsc').html('[ IFSC code is required ]');
+        } else {
+          $('#complete_profile').submit();
+        }
+      });
+    </script>
   </body>
 </html>
