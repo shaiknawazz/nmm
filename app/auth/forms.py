@@ -64,6 +64,8 @@ class CompleteProfileForm(FlaskForm):
     ifsc = StringField('ifsc', validators=[DataRequired()])
     investment_amount = StringField(
         'investment_amount', validators=[DataRequired()])
+    current_company = StringField(
+        'current_company')
     employment_type = RadioField('Are you a', choices=[(
         'salaried', 'Salaried Employee'), ('businessman', 'Businessman')], validators=[DataRequired()])
 

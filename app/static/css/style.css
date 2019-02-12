@@ -71,7 +71,8 @@
 #residential_details,
 #land_details,
 #bank_details,
-#complete {
+#complete,
+#current_company {
   display: none;
 }
 /*Extra styles end*/
